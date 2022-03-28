@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <div className={style.container__main}>
       <div className={style.container__content}>
-        <h1>Marco y Ori</h1>
+        <img src="" alt="" />
+        <h1>Nos casamos</h1>
+        <h2>Ori y Marco</h2>
       </div>
     </div>
   );

@@ -1,0 +1,23 @@
+.image__slide {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.container__main {
+  overflow: hidden;
+}
+
+.container__content {
+  overflow: hidden;
+}
+
+.container__content h3 {
+  font-size: 24px;
+  letter-spacing: 2px;
+  line-height: 30px;
+  margin-bottom: 16px;
+  text-align: center;
+  color: var(--color-font);
+}
