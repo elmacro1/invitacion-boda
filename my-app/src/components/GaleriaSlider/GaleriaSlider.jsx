@@ -94,11 +94,6 @@ const BotonIzquierda = styled.div`
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0px 0px 6px #000000);
-  &:hover {
-    filter: brightness(0) saturate(100%) invert(24%) sepia(92%) saturate(1188%)
-      hue-rotate(186deg) brightness(88%) contrast(91%)
-      drop-shadow(0px 0px 6px #000000);
-  }
 `;
 const BotonDerecha = styled.div`
   top: 44px;

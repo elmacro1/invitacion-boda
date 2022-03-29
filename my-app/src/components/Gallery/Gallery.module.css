@@ -1,12 +1,13 @@
+.container__main {
+  overflow: hidden;
+  margin-bottom: 56px;
+}
 .image__slide {
   width: 150px;
   height: 150px;
   border-radius: 8px;
   object-fit: cover;
-}
-
-.container__main {
-  overflow: hidden;
+  cursor: pointer;
 }
 
 .container__content {
@@ -20,4 +21,6 @@
   margin-bottom: 16px;
   text-align: center;
   color: var(--color-font);
+  font-family: "Satisfy", cursive;
+  font-weight: 700;
 }

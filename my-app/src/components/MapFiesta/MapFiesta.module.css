@@ -1,0 +1,10 @@
+.container__main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container__map {
+  width: 90%;
+  border-radius: 10px;
+}

@@ -11,8 +11,12 @@ import image7 from "../../images/7.jpeg";
 import image8 from "../../images/8.jpeg";
 import image9 from "../../images/9.jpeg";
 import image10 from "../../images/10.jpeg";
+import image11 from "../../images/11.jpeg";
+import image12 from "../../images/12.jpeg";
+import image13 from "../../images/13.jpeg";
+import image14 from "../../images/14.jpeg";
 
-const Gallery = () => {
+const Gallery = ({ selectingImage }) => {
   let [images, setImages] = useState([
     { img: image1 },
     { img: image2 },
@@ -24,11 +28,15 @@ const Gallery = () => {
     { img: image8 },
     { img: image9 },
     { img: image10 },
+    { img: image11 },
+    { img: image12 },
+    { img: image13 },
+    { img: image14 },
   ]);
   return (
     <div className={style.container__main}>
       <div className={style.container__content}>
-        <h3>Nosotros</h3>
+        <h3>NOSOTROS</h3>
         <GaleriaSlider>
           {images.map((image) => (
             <Slide>
@@ -36,6 +44,7 @@ const Gallery = () => {
                 src={image.img}
                 alt="foto slide"
                 className={style.image__slide}
+                onClick={() => selectingImage(image.img)}
               />
             </Slide>
           ))}
