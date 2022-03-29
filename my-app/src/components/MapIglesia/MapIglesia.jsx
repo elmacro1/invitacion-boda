@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import style from "./MapIglesia.module.css";
 import anillos from "./anillos-de-boda.png";
-import close from "./close.svg";
 
 const MapIglesia = () => {
   let [showMap, setShowMap] = useState(false);
