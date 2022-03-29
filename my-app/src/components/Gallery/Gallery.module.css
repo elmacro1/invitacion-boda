@@ -1,6 +1,7 @@
 .container__main {
   overflow: hidden;
   margin-bottom: 56px;
+  padding: 8px 0;
 }
 .image__slide {
   width: 150px;
@@ -8,6 +9,7 @@
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
+  border: 2px solid #000;
 }
 
 .container__content {
@@ -21,6 +23,6 @@
   margin-bottom: 16px;
   text-align: center;
   color: var(--color-font);
-  font-family: "Satisfy", cursive;
-  font-weight: 700;
+  font-family: Merriweather Sans;
+  font-weight: 1000;
 }

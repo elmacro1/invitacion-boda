@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import Gallery from "../../components/Gallery/Gallery";
 import PopUp from "../../components/PopUp/PopUp";
 import MapFiesta from "../../components/MapFiesta/MapFiesta";
+import MapIglesia from "../../components/MapIglesia/MapIglesia";
 
 const Home = () => {
   let [imageSelect, setImageSelect] = useState(null);
@@ -20,6 +21,7 @@ const Home = () => {
         {imageSelect && (
           <PopUp imageSelect={imageSelect} selectingImage={selectingImage} />
         )}
+        <MapIglesia />
         <MapFiesta />
       </div>
     </div>

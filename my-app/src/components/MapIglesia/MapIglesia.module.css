@@ -1,5 +1,6 @@
 .container__main {
   width: 100%;
+  margin-bottom: 24px;
 }
 
 .container__content {
@@ -10,7 +11,7 @@
   align-items: center;
 }
 
-.brindis__image {
+.anillos__image {
   width: 60px;
   margin-bottom: 24px;
 }
