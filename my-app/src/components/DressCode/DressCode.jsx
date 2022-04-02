@@ -7,8 +7,8 @@ const DressCode = () => {
     <div className={style.container__main}>
       <div className={style.container__content}>
         <img src={ropa} alt="ropa" className={style.iconRopa} />
-        <h3>DressCode</h3>
-        <span>Formal elegante</span>
+        <h3>Dress Code</h3>
+        <span>FORMAL ELEGANTE</span>
       </div>
     </div>
   );
