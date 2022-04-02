@@ -30,8 +30,12 @@
 .container__redes_ori {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 25%;
+}
+
+.container__redes_ori a{
+  margin: 0 8px;
 }
 
 .container__redes_ori span {
@@ -45,8 +49,12 @@
 .container__redes_marco {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 25%;
+}
+
+.container__redes_marco a{
+  margin: 0 8px;
 }
 
 .container__redes_marco span {
