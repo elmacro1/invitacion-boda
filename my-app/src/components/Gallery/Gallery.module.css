@@ -1,0 +1,30 @@
+.container__main {
+  overflow: hidden;
+  margin-bottom: 56px;
+  padding: 8px 0;
+
+}
+.image__slide {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
+
+.container__content {
+  overflow: hidden;
+}
+
+.container__content h3 {
+  font-size: 24px;
+  letter-spacing: 2px;
+  line-height: 30px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: var(--color-font);
+  font-family: Merriweather Sans;
+  font-weight: 1000;
+}

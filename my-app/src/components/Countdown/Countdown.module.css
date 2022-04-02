@@ -1,0 +1,65 @@
+.container__main{
+    width: 100%;
+    margin-bottom: 56px;
+}
+
+.container__title{
+    padding: 0 24px;
+    text-align: center;
+    color: var(--color-font);
+    margin-bottom: 40px;
+}
+
+.container__title h2{
+    margin: 0;
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.container__title h3{
+    margin: 0;
+    font-weight: 400;
+    font-family: Merriweather Sans;
+    margin-bottom: 16px;
+}
+
+.container__title span{
+    font-family: Merriweather Sans;
+}
+
+.container__content{
+    margin: 0 24px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container__time_span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.description__remainTime{
+    font-size: 16px;
+    margin-top: 8px;
+    font-family: Merriweather Sans;
+    font-weight: 1000;
+    color: var(--color-font);
+}
+
+.container__time{
+    background-color: var(--color-button);
+    width: 70px;
+    height: 70px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-family: Merriweather Sans;
+    font-weight: 300;
+    font-size: 32px;
+}
