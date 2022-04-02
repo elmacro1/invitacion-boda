@@ -1,0 +1,36 @@
+.container__main{
+    width: 100%;
+    margin-bottom: 56px;
+}
+
+.container__content{
+    margin: 0 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Merriweather Sans;
+    color: var(--color-font);
+}
+
+.iconRopa{
+    width: 64px;
+    margin-bottom: 24px;
+}
+
+.container__content h3{
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 2px;
+    line-height: 30px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--color-font);
+    font-family: Merriweather sans;
+    font-weight: 1000;
+}
+
+.container__content span{
+    font-weight: 400;
+    margin-bottom: 16px;
+}

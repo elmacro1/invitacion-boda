@@ -38,8 +38,8 @@ const Gallery = ({ selectingImage }) => {
       <div className={style.container__content}>
         <h3>NOSOTROS</h3>
         <GaleriaSlider>
-          {images.map((image) => (
-            <Slide>
+          {images.map((image, index) => (
+            <Slide key={index}>
               <img
                 src={image.img}
                 alt="foto slide"

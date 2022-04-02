@@ -1,5 +1,6 @@
 .container__main {
   width: 100%;
+  margin-bottom: 56px;
 }
 
 .container__content {
@@ -11,7 +12,7 @@
 }
 
 .brindis__image {
-  width: 60px;
+  width: 64px;
   margin-bottom: 24px;
 }
 

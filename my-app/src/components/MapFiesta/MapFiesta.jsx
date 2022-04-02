@@ -29,7 +29,7 @@ const MapFiesta = () => {
           width="600"
           height="450"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
           title="google maps"
         ></iframe>
       </div>
