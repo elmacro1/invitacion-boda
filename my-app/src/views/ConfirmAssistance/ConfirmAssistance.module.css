@@ -1,0 +1,18 @@
+.container__main{
+    width: 100%;
+    height: 100vh;
+}
+
+.container__volverButton{
+    margin: 24px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #69543c;
+    color: #fff !important;
+    width: 170px;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+}

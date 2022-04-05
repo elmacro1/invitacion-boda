@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./Countdown.module.css";
 
-const Countdown = () => {
+const Countdown = ({ fechaLimite, confirm }) => {
   let [timer, setTimer] = useState(null);
   const getRemainTime = (deadline) => {
     let now = new Date();
@@ -30,15 +30,21 @@ const Countdown = () => {
   };
 
   useEffect(() => {
-    countDown("May 21 2022 22:00:00 GMT-0300");
+    countDown(fechaLimite);
   }, []);
 
   return (
     <div className={style.container__main}>
       <div className={style.container__title}>
-        <h2>Estás invitado!</h2>
-        <h3>Queremos que seas parte de este momento tan especial!</h3>
-        <span>NO FALTA NADA!!!</span>
+        {confirm ? (
+          <h2>Tiempo para confirmar tu asistencia</h2>
+        ) : (
+          <>
+            <h2>Estás invitado!</h2>
+            <h3>Queremos que seas parte de este momento tan especial!</h3>
+            <span>NO FALTA NADA!!!</span>
+          </>
+        )}
       </div>
       <div className={style.container__content}>
         <div className={style.container__time_span}>

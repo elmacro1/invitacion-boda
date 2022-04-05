@@ -6,6 +6,7 @@ import AddInvited from "./views/AddInvited/AddInvited";
 import { useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
+import ConfirmAssistance from "./views/ConfirmAssistance/ConfirmAssistance";
 
 function App() {
   let [user, setUser] = useState(null);
@@ -26,6 +27,11 @@ function App() {
           exact
           path="/gestion"
           element={user ? <AddInvited /> : <Login />}
+        />
+        <Route
+          exact
+          path="/confirmarAsistencia"
+          element={<ConfirmAssistance />}
         />
       </Routes>
     </div>

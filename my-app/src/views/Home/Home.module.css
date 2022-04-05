@@ -1,0 +1,13 @@
+.container__confirmButton{
+    margin: 56px auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background-color: #69543c;
+    color: #fff !important;
+     width: 170px;
+     height: 45px;
+     border-radius: 10px;
+    cursor: pointer;
+}
