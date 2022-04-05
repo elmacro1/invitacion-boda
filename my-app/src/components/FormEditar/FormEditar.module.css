@@ -1,0 +1,20 @@
+.container__main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.container__form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.74);
+}
+
+.container__form div{
+    width: 100%;
+}

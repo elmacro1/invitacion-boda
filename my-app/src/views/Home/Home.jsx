@@ -7,6 +7,7 @@ import MapFiesta from "../../components/MapFiesta/MapFiesta";
 import MapIglesia from "../../components/MapIglesia/MapIglesia";
 import Countdown from "../../components/Countdown/Countdown";
 import DressCode from "../../components/DressCode/DressCode";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   let [imageSelect, setImageSelect] = useState(null);
@@ -27,6 +28,7 @@ const Home = () => {
         <MapIglesia />
         <MapFiesta />
         <DressCode />
+        <Footer />
       </div>
     </div>
   );

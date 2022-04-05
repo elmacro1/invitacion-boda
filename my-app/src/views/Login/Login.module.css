@@ -1,0 +1,39 @@
+.container__main{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__content{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ font-family: Merriweather Sans;
+ color: var(--color-font);
+ border-radius: 16px;
+ padding: 24px;
+ box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.74);
+}
+
+
+.container__content h1{
+    margin: 0;
+    font-size: 48px;
+    font-weight: 1000;
+    font-family: Satisfy;
+}
+
+.container__content span{
+    font-size: 32px;
+}
+
+.container__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
