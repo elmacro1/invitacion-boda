@@ -2,38 +2,25 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Login = () => {
   let [input, setInput] = useState({ username: "", password: "" });
-  let [error, setError] = useState(false);
-  let [logged, setLogged] = useState(false);
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handlerSubmit = (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
-    validate();
+    loginUser(input.username, input.password);
     console.log(input);
   };
 
-  const validate = () => {
-    if (input.username === "") {
-      setError(true);
-      setLogged(false);
-    } else {
-      setError(false);
-      setLogged(true);
-    }
-    if (input.password === "") {
-      setError(true);
-      setLogged(false);
-    } else {
-      setError(false);
-      setLogged(true);
-    }
+  const loginUser = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password);
   };
+
   return (
     <div className={styles.container__main}>
       <div className={styles.container__content}>
@@ -48,6 +35,7 @@ const Login = () => {
             name="username"
             onChange={handlerChange}
             value={input.username}
+            required
           />
           <TextField
             type="password"
@@ -57,14 +45,12 @@ const Login = () => {
             name="password"
             onChange={handlerChange}
             value={input.password}
-            hiddenLabel
+            required
           />
           <Button variant="outlined" type="submit" color="secondary">
             Ingresar
           </Button>
         </form>
-        {error && <Alert severity="error">Email y/o clave incorrecta!</Alert>}
-        {logged && <Alert severity="success">Logueado!!!</Alert>}
       </div>
     </div>
   );

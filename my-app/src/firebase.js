@@ -1,15 +1,16 @@
 import "@firebase/storage";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA2-NRBHXrYuAEPxGDhP6ixh2PctdOs38s",
-  authDomain: "mibodaom.firebaseapp.com",
-  projectId: "mibodaom",
-  storageBucket: "mibodaom.appspot.com",
-  messagingSenderId: "705831524512",
-  appId: "1:705831524512:web:38263f8cea652db10f11c5",
-  measurementId: "G-JQG0ZTRQWB",
+  apiKey: "AIzaSyB3yfB10p3J-wIeZwE7pFxeQuPdalpCPlg",
+  authDomain: "mibodaom-12150.firebaseapp.com",
+  projectId: "mibodaom-12150",
+  storageBucket: "mibodaom-12150.appspot.com",
+  messagingSenderId: "432885743781",
+  appId: "1:432885743781:web:a974213e7d6e7e5a21cd4c",
+  measurementId: "G-LS04JWVH0Q",
 };
 
 // Initialize Firebase
@@ -17,3 +18,6 @@ export const app = initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
+
+// Inicializamos el login
+export const auth = getAuth(app);

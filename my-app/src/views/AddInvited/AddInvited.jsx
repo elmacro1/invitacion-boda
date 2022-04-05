@@ -5,6 +5,8 @@ import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import FormAgregar from "../../components/FormAgregar/FormAgregar";
 import Button from "@mui/material/Button";
+import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
 
 const AddInvited = () => {
   let [add, setAdd] = useState(false);
@@ -42,6 +44,9 @@ const AddInvited = () => {
   return (
     <div className={styles.container__main}>
       <div className={styles.container__content}>
+        <Button variant="outlined" onClick={() => signOut(auth)}>
+          Cerrar sesion
+        </Button>
         <h1>Agregar invitado!</h1>
         <Button variant="outlined" onClick={() => setAdd(!add)}>
           Agregar invitado
