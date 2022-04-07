@@ -2,8 +2,10 @@ import React from "react";
 import style from "./Footer.module.css";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className={style.container__main}>
       <div className={style.container__content}>
@@ -45,7 +47,9 @@ const Footer = () => {
           </div>
         </div>
         <div className={style.container__info}>
-          <span>Desarrollado por Marco Galván</span>
+          <span onClick={() => navigate("/gestion")}>
+            Desarrollado por Marco Galván
+          </span>
         </div>
       </div>
     </div>

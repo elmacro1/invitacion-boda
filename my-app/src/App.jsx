@@ -23,11 +23,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route
-          exact
-          path="/gestion"
-          element={user ? <AddInvited /> : <Login />}
-        />
+        <Route path="/gestion" element={user ? <AddInvited /> : <Login />} />
         <Route
           exact
           path="/confirmarAsistencia"
