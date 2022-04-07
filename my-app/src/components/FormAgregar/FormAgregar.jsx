@@ -23,12 +23,12 @@ const FormAgregar = ({ reset }) => {
         nombre: input.nombre,
         apellido: input.apellido,
       });
-      alert("Invitado agregado!");
       setInput({
         nombre: "",
         apellido: "",
       });
       reset();
+      alert("Invitado agregado!");
     } catch (e) {
       console.log("Error al agregar un invitado nuevo", e);
     }
@@ -47,6 +47,7 @@ const FormAgregar = ({ reset }) => {
             onChange={handleChange}
             name="nombre"
             value={input.nombre}
+            autoComplete="off"
           />
           <TextField
             id="standard-basic"
@@ -56,6 +57,7 @@ const FormAgregar = ({ reset }) => {
             onChange={handleChange}
             name="apellido"
             value={input.apellido}
+            autoComplete="off"
           />
 
           <Button

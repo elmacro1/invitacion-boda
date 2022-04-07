@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
 import FormEditar from "../../components/FormEditar/FormEditar";
+import { listItemButtonClasses } from "@mui/material";
 
 const AddInvited = () => {
   let [add, setAdd] = useState(false);
@@ -26,11 +27,14 @@ const AddInvited = () => {
     { field: "segundaDosis", headerName: "Segunda dosis", width: 150 },
   ]);
   let [rowsConfirmed, setRowsConfirmed] = useState([]);
-  let [selected, setSelected] = useState();
+  let [selected, setSelected] = useState(null);
   let [reset, setReset] = useState(false);
 
   const handleResetInfo = () => {
     setReset(!reset);
+    setSelected(null);
+    setEdit(false);
+    setAdd(false);
   };
 
   const getInvitados = async () => {
@@ -64,9 +68,13 @@ const AddInvited = () => {
   };
 
   const deleteInvited = async () => {
-    await deleteDoc(doc(db, "invitados", `${selected.id}`));
+    let opcion = window.confirm(
+      "Seguro que quieres borrar al invitado de tu lista?"
+    );
+    if (opcion) {
+      await deleteDoc(doc(db, "invitados", `${selected.id}`));
+    }
     handleResetInfo();
-    alert("Invitado borrado!");
   };
 
   useEffect(() => {

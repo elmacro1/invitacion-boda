@@ -18,8 +18,8 @@ const FormEditar = ({ reset, invitado }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateInvited();
-    alert("Invitado editado!");
     reset();
+    alert("Invitado editado!");
   };
 
   const updateInvited = async () => {
@@ -52,6 +52,7 @@ const FormEditar = ({ reset, invitado }) => {
             onChange={handleChange}
             name="nombre"
             value={input.nombre}
+            autoComplete="off"
           />
           <TextField
             id="standard-basic"
@@ -61,6 +62,7 @@ const FormEditar = ({ reset, invitado }) => {
             onChange={handleChange}
             name="apellido"
             value={input.apellido}
+            autoComplete="off"
           />
 
           <Button
