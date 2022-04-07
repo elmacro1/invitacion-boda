@@ -47,7 +47,7 @@ const FormConfirmAssistance = ({ invitados }) => {
         nombre: selected.nombre,
         apellido: selected.apellido,
         dni: selected.dni,
-        numero: selected.numero,
+        numero: selected.numero ? selected.numero : "No posee",
         primeraDosis: selected.primeraDosis,
         segundaDosis: selected.segundaDosis,
       });
@@ -117,6 +117,7 @@ const FormConfirmAssistance = ({ invitados }) => {
                 onFocus={() => setSearching(true)}
                 value={input}
                 autoComplete="off"
+                required
               />
               {yaConfirmado ? (
                 <h3 className={styles.message_error}>
@@ -152,6 +153,7 @@ const FormConfirmAssistance = ({ invitados }) => {
                       value={selected.dni}
                       autoComplete="off"
                       onChange={handlerChangeSelected}
+                      required
                     />
                   </div>
                   <div className={styles.container__label_input}>
@@ -181,6 +183,7 @@ const FormConfirmAssistance = ({ invitados }) => {
                       value={selected.primeraDosis}
                       autoComplete="off"
                       onChange={handlerChangeSelected}
+                      required
                     />
                   </div>
                   <div className={styles.container__label_input}>
@@ -196,6 +199,7 @@ const FormConfirmAssistance = ({ invitados }) => {
                       value={selected.segundaDosis}
                       autoComplete="off"
                       onChange={handlerChangeSelected}
+                      required
                     />
                   </div>
                 </div>
