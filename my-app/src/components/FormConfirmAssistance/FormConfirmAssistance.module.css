@@ -30,7 +30,7 @@
     margin-top: 4px;
     padding: 8px;
     height: 140px;
-    overflow-y: scroll;
+    overflow-y: auto;
     transition: all 0.1s ease-in-out;
 }
 
@@ -81,4 +81,26 @@
 .container__label_input label{
     margin: 0;
     margin-bottom: 8px ;
+}
+
+.container__searchIcon{
+    position: absolute !important;
+    right: 0;
+    bottom: 0;
+}
+
+.container__search{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.container__search input{
+    border: none;
+    outline: none !important;
+    background-color: transparent;
+    height: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 8px;
 }

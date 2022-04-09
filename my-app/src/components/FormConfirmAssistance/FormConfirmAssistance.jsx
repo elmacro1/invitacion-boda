@@ -4,6 +4,8 @@ import Button from "@mui/material/Button";
 import { doc, setDoc, getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase";
 import CloseIcon from "@mui/icons-material/Close";
+import SearchIcon from "@mui/icons-material/Search";
+import IconButton from "@mui/material/IconButton";
 
 const FormConfirmAssistance = ({ invitados }) => {
   let [input, setInput] = useState("");
@@ -11,22 +13,28 @@ const FormConfirmAssistance = ({ invitados }) => {
   let [invited, setInvited] = useState();
   let [invitadosShow, setInvitadosShow] = useState();
   let [selected, setSelected] = useState({});
-  let [yaConfirmado, setYaConfirmado] = useState(false);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
-    console.log(selected);
     confirmarAsistencia();
     setSelected({});
     setInput("");
-    setInvitadosShow(invitados);
+    setInvitadosShow(deleteConfirmado());
     alert("Se confirmo asistencia!");
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    filtrar(input);
+    setSearching(true);
+  };
+
+  const deleteConfirmado = () => {
+    return invitadosShow.filter((elem) => elem.id !== selected.id);
   };
 
   const handlerChange = (e) => {
     setInput(e.target.value);
-    filtrar(e.target.value);
   };
 
   const handlerChangeSelected = (e) => {
@@ -34,9 +42,16 @@ const FormConfirmAssistance = ({ invitados }) => {
   };
 
   const filtrar = (termino) => {
+    let terminoAux = termino?.split(" ");
     let resultado = invited?.filter((elem) => {
       let nombreCompleto = `${elem.nombre} ${elem.apellido}`;
-      return nombreCompleto.toLowerCase().includes(termino.toLowerCase());
+      let elemAux;
+      terminoAux.forEach((e) => {
+        if (nombreCompleto.toLowerCase().includes(e.toLowerCase())) {
+          elemAux = elem;
+        }
+      });
+      return elemAux;
     });
     setInvitadosShow(resultado);
   };
@@ -59,88 +74,111 @@ const FormConfirmAssistance = ({ invitados }) => {
   const cleanInput = () => {
     setSelected(null);
     setInput("");
-    setYaConfirmado(false);
     setInvitadosShow(invitados);
   };
 
-  const verifConfirmado = async (value) => {
-    let confirmados = [];
-    const querySnapshot = await getDocs(collection(db, "confirmados"));
-    querySnapshot.forEach((doc) => {
-      let obj = doc.data();
-      obj = { ...obj, id: doc.id };
-      confirmados.push(obj);
-    });
-    let aux = confirmados.find((elem) => elem.id === value);
-    aux ? setYaConfirmado(true) : setYaConfirmado(false);
+  const getConfirmados = async () => {
+    try {
+      let confirmados = [];
+      const querySnapshot = await getDocs(collection(db, "confirmados"));
+      querySnapshot.forEach((doc) => {
+        let obj = doc.data();
+        obj = { ...obj, id: doc.id };
+        confirmados.push(obj);
+      });
+
+      let inviteds = invitados?.filter((i) => {
+        let confirmed = false;
+        confirmados.forEach((c) => {
+          if (c?.id === i?.id) {
+            confirmed = true;
+          }
+        });
+        if (confirmed === false) {
+          return i;
+        }
+      });
+      setInvited(inviteds);
+    } catch (e) {
+      console.log("Error al traer los confirmados", e);
+    }
   };
 
   useEffect(() => {
-    setInvited(invitados);
     setInvitadosShow(invitados);
+    getConfirmados();
   }, [invitados]);
+
+  const handlerSearchView = () => {
+    if (input === "") {
+      setSearching(false);
+    }
+  };
+
+  useEffect(() => {
+    handlerSearchView();
+  }, [input]);
 
   return (
     <div className={styles.container__main}>
       <div className={styles.container__content}>
         <h2>Confirma tu asistencia!</h2>
-        <form className={styles.container__form} onSubmit={handlerSubmit}>
-          <label htmlFor="search">
-            Busca tu nombre en la lista de invitados
-          </label>
-          <div className={styles.container__search_list}>
-            <div
-              className={styles.container__search_result}
-              onBlur={(e) =>
-                setTimeout(() => {
-                  setSearching(false);
-                }, 100)
-              }
-            >
-              {selected?.nombre && (
-                <CloseIcon
-                  sx={{
-                    position: "absolute",
-                    right: "16px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => {
-                    cleanInput();
-                  }}
-                />
-              )}
+        <form
+          className={styles.container__search}
+          onSubmit={(e) => input !== "" && handleSearch(e)}
+        >
+          {selected?.nombre ? (
+            <CloseIcon
+              sx={{
+                position: "absolute",
+                right: "8px",
+                bottom: "8px",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                cleanInput();
+              }}
+            />
+          ) : (
+            <IconButton className={styles.container__searchIcon} type="submit">
+              <SearchIcon />
+            </IconButton>
+          )}
 
-              <input
-                id="search"
-                placeholder="Ingresa tu nombre y/o apellido"
-                onChange={handlerChange}
-                onFocus={() => setSearching(true)}
-                value={input}
-                autoComplete="off"
-                required
-              />
-              {yaConfirmado ? (
-                <h3 className={styles.message_error}>
-                  Ya confirmaste tu asistencia!
-                </h3>
-              ) : null}
-              {searching && (
+          <input
+            id="search"
+            placeholder="Ingresa tu nombre y/o apellido"
+            onChange={handlerChange}
+            value={input}
+            autoComplete="off"
+            required
+          />
+        </form>
+        <form className={styles.container__form} onSubmit={handlerSubmit}>
+          <div className={styles.container__search_list}>
+            <div className={styles.container__search_result}>
+              {searching === true && input ? (
                 <ul className={styles.container__listado}>
-                  {invitadosShow &&
+                  {invitadosShow.length > 0 ? (
                     invitadosShow.map((elem, index) => (
                       <li
                         key={index}
                         onClick={() => {
-                          verifConfirmado(elem.id);
                           setInput(`${elem.nombre} ${elem.apellido}`);
                           setSelected(elem);
                           setSearching(false);
                         }}
                       >{`${elem.nombre} ${elem.apellido}`}</li>
-                    ))}
+                    ))
+                  ) : (
+                    <span>
+                      No existe este invitado en la lista o ya confirmo su
+                      asistencia
+                    </span>
+                  )}
                 </ul>
-              )}
-              {!yaConfirmado && selected?.nombre ? (
+              ) : null}
+              {selected?.nombre ? (
                 <div className={styles.container__inputs_confirm}>
                   <h3>{`Hola ${selected.nombre}!`}</h3>
                   <div className={styles.container__label_input}>
@@ -205,9 +243,11 @@ const FormConfirmAssistance = ({ invitados }) => {
                 </div>
               ) : null}
             </div>
-            <Button variant="outlined" type="submit" color="success">
-              Confirmar
-            </Button>
+            {selected?.nombre && (
+              <Button variant="outlined" type="submit" color="success">
+                Confirmar
+              </Button>
+            )}
           </div>
         </form>
       </div>
