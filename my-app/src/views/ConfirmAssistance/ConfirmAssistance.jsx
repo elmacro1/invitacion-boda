@@ -38,7 +38,7 @@ const ConfirmAssistance = () => {
         >
           <span className={styles.confirmButton}>Volver</span>
         </div>
-        <Countdown fechaLimite="May 10 2022 23:59:00 GMT-0300" confirm={true} />
+        <Countdown fechaLimite="Apr 30 2022 23:59:00 GMT-0300" confirm={true} />
         <FormConfirmAssistance invitados={invitados} />
       </div>
     </div>
